@@ -11,6 +11,23 @@
    <context:component-scan base-package="org.tarena.note.controller">
    </context:component-scan>
    
+  <mvc:interceptors>
+  	<mvc:interceptor>
+  		<mvc:mapping path="/**" />
+  		<!-- 不进行拦截 -->
+         <mvc:exclude-mapping path="/**/fonts/*"/>
+         <mvc:exclude-mapping path="/**/*.css"/>
+         <mvc:exclude-mapping path="/**/*.js"/>
+         <mvc:exclude-mapping path="/**/*.png"/>
+         <mvc:exclude-mapping path="/**/*.gif"/>
+         <mvc:exclude-mapping path="/**/*.jpg"/>
+         <mvc:exclude-mapping path="/**/*.html"/>
+         <mvc:exclude-mapping path="/**/*.jpeg"/>
+         <mvc:exclude-mapping path="/user/*.do"/>
+  		<bean class="org.tarena.note.interceptor.LoginInterceptor"></bean>
+  	</mvc:interceptor>
+  </mvc:interceptors>
+   
    <mvc:annotation-driven></mvc:annotation-driven>
    
    <!-- 配置视图解析器 -->

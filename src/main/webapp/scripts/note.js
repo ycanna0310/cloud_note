@@ -6,9 +6,8 @@ function loadnotebyid(){
 	var noteId = $(this).data("noteId");
 	//发送ajax请求
 	$.ajax({
-		url:"/cloudnote/note/load.do",
-		type:"post",
-		data:{"noteId":noteId},
+		url:"/cloudnote/note/load.do?noteId="+noteId,
+		type:"get",
 		dataType:"json",
 		success:function(result){
 			if(result.status==0){
@@ -43,7 +42,7 @@ function sureAddNote(){
 	//TODO 检测参数格式
 	//发送ajax请求
 	$.ajax({
-		url:"http://localhost/CloudNote/note/add.do",
+		url:"/cloudnote/note/add.do",
 		type:"post",
 		data:{"userId":userId,
 			"bookId":bookId,
@@ -96,7 +95,7 @@ function saveNote(){
 	//TODO 检查参数格式
 	//发送ajax请求
 	$.ajax({
-		url:"http://localhost/CloudNote/note/update.do",
+		url:"/cloudnote/note/update.do",
 		type:"post",
 		data:{"noteId":noteId,
 			"noteTitle":noteTitle,

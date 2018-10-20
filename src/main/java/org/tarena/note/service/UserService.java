@@ -1,5 +1,7 @@
 package org.tarena.note.service;
 
+import javax.servlet.http.HttpSession;
+
 import org.tarena.note.entity.NoteResult;
 
 public interface UserService {
@@ -10,7 +12,7 @@ public interface UserService {
 	 * @param password
 	 * @return
 	 */
-	public NoteResult checkLogin(String name,String password);
+	public NoteResult checkLogin(String name,String password,HttpSession session);
 	/**
 	 * 注册用户
 	 * @param name

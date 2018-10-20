@@ -2,6 +2,8 @@ package org.tarena.note.service.impl;
 
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tarena.note.dao.UserDao;
@@ -21,7 +23,7 @@ public class UserServiceImpl implements UserService{
 	private UserDao userDao;
 
 	public NoteResult checkLogin(
-		String name, String password) {
+		String name, String password, HttpSession session) {
 		
 		NoteResult result = new NoteResult();
 		User user = userDao.findByName(name);
@@ -36,7 +38,8 @@ public class UserServiceImpl implements UserService{
 		if(user.getCn_user_password().equals(md5_pwd)){
 			result.setStatus(0);
 			result.setMsg("用户名和密码正确");
-			result.setData(user);//将user对象传出
+			//result.setData(user);//将user对象传出
+			session.setAttribute("user", user);
 			return result;
 		}
 		result.setStatus(2);

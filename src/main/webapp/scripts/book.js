@@ -4,7 +4,6 @@ function loaduserbooks(){
 	$.ajax({
 		url:"/cloudnote/notebook/loadbooks.do",
 		type:"post",
-		data:{"userId":userId},
 		dataType:"json",
 		success:function(result){
 			if(result.status==0){
@@ -53,9 +52,8 @@ function loadbooknotes(){
 	var bookId = $(this).data("bookId");
 	//发送ajax请求
 	$.ajax({
-		url:"/cloudnote/notebook/loadnotes.do",
-		type:"post",
-		data:{"bookId":bookId},
+		url:"/cloudnote/notebook/loadnotes.do?bookId="+bookId,
+		type:"get",
 		dataType:"json",
 		success:function(result){
 			if(result.status==0){
@@ -111,7 +109,7 @@ function sureAddBook(){
 	var bookName = $("#input_notebook").val().trim();
 	//TODO检测非空
 	$.ajax({
-		url:"http://localhost/CloudNote/notebook/add.do",
+		url:"/cloudnote/notebook/add.do", //http://localhost/CloudNote/notebook/add.do
 		type:"post",
 		data:{"userId":userId,"bookName":bookName},
 		dataType:"json",

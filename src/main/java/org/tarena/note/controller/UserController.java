@@ -24,11 +24,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	
 	@RequestMapping("/login.do")
 	@ResponseBody
-	public NoteResult execute(String name,String password){
+	public NoteResult execute(String name,String password,HttpSession session){
 		
-		NoteResult u=userService.checkLogin(name, password);
+		NoteResult u=userService.checkLogin(name, password, session);
 		
 		return u;
 	}

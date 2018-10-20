@@ -1,19 +1,5 @@
 $(function(){//页面载入后执行,body内容载入
-	window.onload = function () {
-		//alert("1");
-		//alert(navigator.userAgent.indexOf());
-		var u = navigator.userAgent;
-		if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {//安卓手机
-			 window.location.href="loginbeifen.html";
-		// window.location.href = "mobile/index.html";
-		} else if (u.indexOf('iPhone') > -1) {//苹果手机
-		// window.location.href = "mobile/index.html";
-			window.location.href="loginbeifen.html";
-		} else if (u.indexOf('Windows Phone') > -1) {//winphone手机
-			window.location.href="loginbeifen.html";
-		// window.location.href = "mobile/index.html";
-		}
-	}
+	
 	
 	
 	$("#login").click(function(){
@@ -57,8 +43,8 @@ $(function(){//页面载入后执行,body内容载入
 						  	//result是服务器返回的json结果
 						  	if(result.status==0){//成功
 						  	   //获取返回的userID，放入cookie
-						  	   var userId = result.data.cn_user_id;
-						  	   addCookie("userId",userId,2);
+						  	   //var userId = result.data.cn_user_id;
+						  	   //addCookie("userId",userId,2);
 						  	   //跳转到edit.html
 						  	   window.location.href="edit.html";
 						  	}else if(result.status==1){//用户名错
