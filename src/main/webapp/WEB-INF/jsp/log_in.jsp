@@ -1,21 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="styles/login.css"/>
-<script type="text/javascript" src="scripts/jquery.min.js"></script>
-<script type="text/javascript" src="scripts/cookie_util.js"></script>
-<script type="text/javascript" src="scripts/login.js"></script>
-<script type="text/javascript"src="scripts/regist.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/styles/login.css"/>
+<script type="text/javascript" src="${pageContext.request.contextPath }/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/scripts/cookie_util.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/scripts/login.js"></script>
+<script type="text/javascript"src="${pageContext.request.contextPath }/scripts/regist.js"></script>
+<script type="text/javascript">
+    var ctx = "${pageContext.request.contextPath }";
+</script>
 <script type="text/javascript">
   $(function(){
 	  $("#sig_in").click(function(){
-		  window.location.href="reg_in.html";
+		  window.location.href="${pageContext.request.contextPath }/user/toRegister.do?todo=reg_in";
 	  });
   });
   function reloadImg(){
 	  var time=new Date().getTime();
-	  document.getElementById("yanzhengma").src="/cloudnote/user/captcha.do?d="+time;
+	  document.getElementById("yanzhengma").src="${pageContext.request.contextPath }/user/captcha.do?d="+time;
   }
   
 </script>
@@ -46,7 +52,7 @@
 					<dt>
 						<div class='letter'>
 							验证码:&nbsp;<input type="text" name="" id="captcher" tabindex='1'/>&nbsp;&nbsp;
-							<span><a href="javascript:reloadImg();"><img alt="验证码" id="yanzhengma" src="/cloudnote/user/captcha.do"></a></span>
+							<span><a href="javascript:reloadImg();"><img alt="验证码" id="yanzhengma" src="${pageContext.request.contextPath }/user/captcha.do"></a></span>
 							<p id="captcha_msg"></p>
 						</div>
 					</dt>

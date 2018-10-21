@@ -11,14 +11,12 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		String requestURI = request.getRequestURI();
-		if(requestURI.endsWith("log_in.html")) {
-			return true;
-		}
+		
 		
 		Object user = request.getSession().getAttribute("user");
 		if(user == null) {
 			String contextPath=request.getContextPath();
-			response.sendRedirect(contextPath + "/log_in.html"); 
+			response.sendRedirect(contextPath + "/"); 
 			return false;
 		}
 		

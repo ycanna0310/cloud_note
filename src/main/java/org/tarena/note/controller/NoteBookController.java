@@ -30,7 +30,9 @@ public class NoteBookController {
 	
 	@RequestMapping("/add.do")
 	@ResponseBody
-	public NoteResult save(String userId,String bookName) {
+	public NoteResult save(String bookName,HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		String userId = user.getCn_user_id();
 		return noteBookService.save(userId,bookName);
 	}
 	

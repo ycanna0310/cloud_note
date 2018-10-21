@@ -6,7 +6,7 @@ function loadnotebyid(){
 	var noteId = $(this).data("noteId");
 	//发送ajax请求
 	$.ajax({
-		url:"/cloudnote/note/load.do?noteId="+noteId,
+		url:ctx+"/note/load.do?noteId="+noteId,
 		type:"get",
 		dataType:"json",
 		success:function(result){
@@ -27,7 +27,7 @@ function loadnotebyid(){
 //弹出添加笔记对话框
 function showAddNoteWindow(){
 	//加载alert页面内容
-	$("#can").load("alert/alert_note.html");
+	$("#can").load(ctx+"/alert/alert_note.html");
 	//显示背景色
 	$(".opacity_bg").show();
 };
@@ -42,7 +42,7 @@ function sureAddNote(){
 	//TODO 检测参数格式
 	//发送ajax请求
 	$.ajax({
-		url:"/cloudnote/note/add.do",
+		url:ctx+"/note/add.do",
 		type:"post",
 		data:{"userId":userId,
 			"bookId":bookId,
@@ -95,7 +95,7 @@ function saveNote(){
 	//TODO 检查参数格式
 	//发送ajax请求
 	$.ajax({
-		url:"/cloudnote/note/update.do",
+		url:ctx+"/note/update.do",
 		type:"post",
 		data:{"noteId":noteId,
 			"noteTitle":noteTitle,
@@ -146,7 +146,7 @@ function recycleNote(){
 	var noteId = $noteli.data("noteId");
 	//发送ajax请求
 	$.ajax({
-		url:"http://localhost/CloudNote/note/recycle.do",
+		url:ctx+"/note/recycle.do",
 		type:"post",
 		data:{"noteId":noteId},
 		dataType:"json",
@@ -168,7 +168,7 @@ function shareNote(){
 	var noteId = $noteli.data("noteId");
 	//发送ajax请求
 	$.ajax({
-		url:"http://localhost/CloudNote/note/share.do",
+		url:ctx+"/note/share.do",
 		type:"post",
 		data:{"noteId":noteId},
 		dataType:"json",
@@ -202,7 +202,7 @@ function searchsharenote(event){
 		//获取文本框中的内容
 		var text=$("#search_note").val().trim();
 		$.ajax({
-			url:"http://localhost/CloudNote/note/search.do",
+			url:ctx+"/note/search.do",
 			type:"post",
 			data:{"text":text},
 			dataType:"json",
@@ -241,7 +241,7 @@ function searchsharenote(event){
 function preview(){
 	 var noteId=$(this).data("noteId");
 	 $.ajax({
-		 url:"http://localhost/CloudNote/note/preview.do",
+		 url:ctx+"/note/preview.do",
 	     type:"post",
 	     data:{"noteId":noteId},
 	     dataType:"json",
@@ -271,7 +271,7 @@ function rolltorecycle(){
 	
     //利用获取的userId
 	$.ajax({
-		url:"http://localhost/CloudNote/note/recycleList.do",
+		url:ctx+"/note/recycleList.do",
 		type:"post",
 		data:{"userId":userId},
 		dataType:"json",
@@ -306,7 +306,7 @@ function delete_note(){
 	var noteId = $noteli.data("noteId");
 	//发送ajax请求
 	$.ajax({
-		url:"http://localhost/CloudNote/note/deleteNote.do",
+		url:ctx+"/note/deleteNote.do",
 		type:"post",
 		data:{"noteId":noteId},
 		dataType:"json",
@@ -328,7 +328,7 @@ function replay_note(){
 	var noteId = $noteli.data("noteId");
 	//发送ajax请求
 	$.ajax({
-		url:"http://localhost/CloudNote/note/replay.do",
+		url:ctx+"/note/replay.do",
 		type:"post",
 		data:{"noteId":noteId},
 		dataType:"json",

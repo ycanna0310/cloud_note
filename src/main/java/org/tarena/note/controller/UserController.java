@@ -24,6 +24,10 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@RequestMapping("/toRegister.do")
+	public String toRegister(String todo) {
+		return todo;
+	}
 	
 	@RequestMapping("/login.do")
 	@ResponseBody

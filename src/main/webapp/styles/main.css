@@ -11237,7 +11237,7 @@ body.gallery-expand {
 	opacity:0.6;
 	margin:auto;
 	z-index:1049;
-	display:none;
+	/*  display:none;*/
 }
 a.checked{
 	color:#FFF;

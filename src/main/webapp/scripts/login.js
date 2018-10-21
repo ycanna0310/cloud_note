@@ -26,7 +26,7 @@ $(function(){//页面载入后执行,body内容载入
 			}
 		if(ok){
 		$.ajax({
-			  url:"/cloudnote/user/checkCaptch.do",
+			  url:ctx+"/user/checkCaptch.do",
 			  async: false,
 			  type:"post",
 			  data:{"captcha":captcha},
@@ -35,7 +35,7 @@ $(function(){//页面载入后执行,body内容载入
 			  	//result是服务器返回的json结果
 			  	if(result.status==0){//成功
 			  		$.ajax({
-			  			url:"/cloudnote/user/login.do",
+			  			url:ctx+"/user/login.do",
 			  			type:"post",
 			  			data:{"name":name,"password":password},
 			  			dataType:"json",
@@ -46,7 +46,7 @@ $(function(){//页面载入后执行,body内容载入
 						  	   //var userId = result.data.cn_user_id;
 						  	   //addCookie("userId",userId,2);
 						  	   //跳转到edit.html
-						  	   window.location.href="edit.html";
+						  	   window.location.href=ctx+"/user/toRegister.do?todo=edit";
 						  	}else if(result.status==1){//用户名错
 						  	   $("#count_msg").html(result.msg);
 						  	}else if(result.status==2){
@@ -76,7 +76,7 @@ $(function(){//页面载入后执行,body内容载入
 	});
 	$("#pp").click(function(){
 		var time=new Date().getTime();
-		  document.getElementById("yanzhengma").src="/cloudnote/user/captcha.do?d="+time;
+		  document.getElementById("yanzhengma").src="${pageContext.request.contextPath }/user/captcha.do?d="+time;
 	});
 	
 });

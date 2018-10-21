@@ -50,7 +50,7 @@ $(function(){
 		//发送ajax请求
 		if(ok){
 			$.ajax({
-			  url:"/cloudnote/user/regist.do",
+			  url:ctx+"/user/regist.do",
 			  type:"post",
 			  data:{"name":name,
 			  	"password":password,
